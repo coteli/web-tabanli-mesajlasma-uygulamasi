@@ -22,13 +22,14 @@ function Login() {
     <div className="login">
       <div className="login__container">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          src="/giris.png"
           alt=""
         />
         <div className="login_text">
-          <h1>Sign in to WhatsApp</h1>
+          <h1>Mesaj Yaz</h1>
+          <h1>Uygulamasına Giriş</h1>
         </div>
-        <Button onClick={signIn}>Sign in with Google</Button>
+        <Button onClick={signIn}>Google ile Giriş Yap</Button>
       </div>
     </div>
   );

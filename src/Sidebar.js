@@ -45,7 +45,7 @@ function Sidebar() {
       <div className="sidebar__search">
         <div className="sidebar__searchContainer">
           <SearchOutlined />
-          <input placeholder="Search or start new chat" type="text" />
+          <input placeholder="Odalarda Arayın..." type="text" />
         </div>
       </div>
 

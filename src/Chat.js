@@ -55,7 +55,7 @@ function Chat() {
   return (
     <div className="chat">
       <div className="chat__header">
-        <Avatar src={`http://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <Avatar src={`http://avatars.dicebear.com/api/bottts/${seed}.svg`} />
         <div className="chat__headerInfo">
           <h3>{roomName}</h3>
           <p>
@@ -100,7 +100,7 @@ function Chat() {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type a message..."
+            placeholder="Mesajınızı yazın..."
             type="text"
           />
           <button onClick={sendMessage} type="submit">

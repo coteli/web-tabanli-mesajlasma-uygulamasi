@@ -36,7 +36,7 @@ function SidebarChat({ id, name, addNewChat }) {
   return !addNewChat ? (
     <Link to={`/rooms/${id}`}>
       <div className="sidebarChat">
-        <Avatar src={`http://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <Avatar src={`http://avatars.dicebear.com/api/bottts/${seed}.svg`} />
         <div className="sidebarChat__info">
           <h2>{name}</h2>
           <p>{messages[0]?.message}</p>
@@ -45,7 +45,7 @@ function SidebarChat({ id, name, addNewChat }) {
     </Link>
   ) : (
     <div onClick={createChat} className="sidebarChat">
-      <h2>Add new Chat</h2>
+      <h2>Yeni Bir Oda Ekleyin</h2>
     </div>
   );
 }
