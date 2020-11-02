@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import { Avatar, IconButton } from "@material-ui/core";
-import { Chat, DonutLarge, MoreVert, SearchOutlined } from "@material-ui/icons";
+import { Chat, SearchOutlined } from "@material-ui/icons";
 import SidebarChat from "./SidebarChat";
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
-  const [{ user }, dispatch] = useStateValue();
+  // eslint-disable-next-line
+  const [{ user }, dispatch ] = useStateValue();
 
   useEffect(() => {
     const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
@@ -29,16 +30,11 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__header">
         <Avatar src={user?.photoURL}/>
-        <div className="sidebar__headerRight">
-          <IconButton>
-            <DonutLarge />
-          </IconButton>
+        <span>{user.displayName}</span> 
+        <div className="sidebar__headerRight">        
           <IconButton>
             <Chat />
-          </IconButton>
-          <IconButton>
-            <MoreVert />
-          </IconButton>
+          </IconButton>       
         </div>
       </div>
 

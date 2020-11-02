@@ -37,7 +37,7 @@
 
 .chat__reciever {
     margin-left: auto;
-    background-color: #99dff8;
+    background-color: #a8e5fc;
 }
 
 .chat__timestamp {
@@ -55,7 +55,7 @@
 .chat__headerRight {
   display: flex;
   justify-content: space-between;
-  min-width: 100px;
+  margin-left: auto;
 }
 
 .chat__body {
@@ -84,6 +84,7 @@
     flex: 1;
     border-radius: 30px;
     padding: 10px;
+    margin-right: 20px;
     border: none;
     outline: none;
 }

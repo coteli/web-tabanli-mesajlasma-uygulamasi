@@ -1,11 +1,5 @@
 import { Avatar, IconButton } from "@material-ui/core";
-import {
-  AttachFile,
-  InsertEmoticon,
-  Mic,
-  MoreVert,
-  SearchOutlined,
-} from "@material-ui/icons";
+import { InsertEmoticon, MoreVert } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./Chat.css";
@@ -15,10 +9,10 @@ import firebase from "firebase";
 
 function Chat() {
   const [input, setInput] = useState("");
-  const [seed, setSeed] = useState("");
   const { roomId } = useParams();
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
+  // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
@@ -37,13 +31,9 @@ function Chat() {
     }
   }, [roomId]);
 
-  useEffect(() => {
-    setSeed(Math.floor(Math.random() * 5000));
-  }, [roomId]);
-
   const sendMessage = (e) => {
     e.preventDefault();
-    
+
     db.collection("rooms").doc(roomId).collection("messages").add({
       message: input,
       name: user.displayName,
@@ -55,25 +45,17 @@ function Chat() {
   return (
     <div className="chat">
       <div className="chat__header">
-        <Avatar src={`http://avatars.dicebear.com/api/bottts/${seed}.svg`} />
+        <Avatar src={`http://avatars.dicebear.com/api/bottts/${roomId}.svg`} />
         <div className="chat__headerInfo">
           <h3>{roomName}</h3>
           <p>
-            last seen{" "}
-            {
-              new Date(
-                messages[messages.length - 1]?.timestamp?.toDate()).toUTCString()
-              
-            }
+            Son mesaj zamanı{" "}
+            {new Date(
+              messages[messages.length - 1]?.timestamp?.toDate()
+            ).toLocaleString()}
           </p>
         </div>
         <div className="chat__headerRight">
-          <IconButton>
-            <SearchOutlined />
-          </IconButton>
-          <IconButton>
-            <AttachFile />
-          </IconButton>
           <IconButton>
             <MoreVert />
           </IconButton>
@@ -89,13 +71,15 @@ function Chat() {
             <span className="chat__name">{message.name}</span>
             {message.message}
             <span className="chat__timestamp">
-              {new Date(message.timestamp?.toDate()).toUTCString()}
+              {new Date(message.timestamp?.toDate()).toLocaleString()}
             </span>
           </p>
         ))}
       </div>
       <div className="chat__footer">
-        <InsertEmoticon />
+        <IconButton>
+          <InsertEmoticon />
+        </IconButton>
         <form>
           <input
             value={input}
@@ -104,10 +88,9 @@ function Chat() {
             type="text"
           />
           <button onClick={sendMessage} type="submit">
-            Send a message
+            Send message!
           </button>
         </form>
-        <Mic />
       </div>
     </div>
   );

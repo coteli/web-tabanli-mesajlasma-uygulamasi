@@ -5,7 +5,6 @@ import db from "./firebase";
 import "./SidebarChat.css";
 
 function SidebarChat({ id, name, addNewChat }) {
-  const [seed, setSeed] = useState("");
   const [messages, setMessages] = useState("");
 
   useEffect(() => {
@@ -20,12 +19,8 @@ function SidebarChat({ id, name, addNewChat }) {
     }
   }, [id]);
 
-  useEffect(() => {
-    setSeed(Math.floor(Math.random() * 5000));
-  }, []);
-
   const createChat = () => {
-    const roomName = prompt("Please enter a room name for chat room");
+    const roomName = prompt("Yeni oda için bir isim girin...");
     if (roomName) {
       db.collection("rooms").add({
         name: roomName,
@@ -36,7 +31,7 @@ function SidebarChat({ id, name, addNewChat }) {
   return !addNewChat ? (
     <Link to={`/rooms/${id}`}>
       <div className="sidebarChat">
-        <Avatar src={`http://avatars.dicebear.com/api/bottts/${seed}.svg`} />
+        <Avatar src={`http://avatars.dicebear.com/api/bottts/${id}.svg`} />
         <div className="sidebarChat__info">
           <h2>{name}</h2>
           <p>{messages[0]?.message}</p>

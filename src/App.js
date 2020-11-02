@@ -8,7 +8,8 @@ import Sidebar from "./Sidebar";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{ user }, dipatch] = useStateValue();
+  // eslint-disable-next-line
+  const [{ user }, dispatch ] = useStateValue();
 
   return (
     <div className="app">
