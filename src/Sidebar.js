@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import { Avatar, IconButton } from "@material-ui/core";
-import { Chat, SearchOutlined } from "@material-ui/icons";
+import { Chat } from "@material-ui/icons";
 import SidebarChat from "./SidebarChat";
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
@@ -35,13 +35,6 @@ function Sidebar() {
           <IconButton>
             <Chat />
           </IconButton>       
-        </div>
-      </div>
-
-      <div className="sidebar__search">
-        <div className="sidebar__searchContainer">
-          <SearchOutlined />
-          <input placeholder="Odalarda Arayın..." type="text" />
         </div>
       </div>
 

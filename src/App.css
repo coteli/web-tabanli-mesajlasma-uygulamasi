@@ -6,6 +6,7 @@
 }
 
 .app__body {
+  max-width: 1440px;
   display: flex;
   background-color: #ededed;
   margin-top: -50px;

@@ -5,6 +5,10 @@
     border-bottom: 1px solid #f6f6f6;
 }
 
+.sidebarChat > h4 {
+    margin: auto;
+}
+
 a {
     text-decoration: none !important;
     color: black;
@@ -16,7 +20,7 @@ a {
 
 .sidebarChat__info > h2 {
     font-size: 16px;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
 }
 
 .sidebarChat__info {
