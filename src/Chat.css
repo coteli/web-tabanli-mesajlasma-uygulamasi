@@ -33,6 +33,7 @@
     width: fit-content;
     background-color: #ffffff;
     margin-bottom: 30px;
+    max-width: 400px;
 }
 
 .chat__reciever {
