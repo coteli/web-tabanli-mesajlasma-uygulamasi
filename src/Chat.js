@@ -6,6 +6,7 @@ import "./Chat.css";
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
 import firebase from "firebase";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -61,21 +62,24 @@ function Chat() {
           </IconButton>
         </div>
       </div>
-      <div className="chat__body">
-        {messages.map((message) => (
-          <p
-            className={`chat__message ${
-              message.name === user.displayName && "chat__reciever"
-            }`}
-          >
-            <span className="chat__name">{message.name}</span>
-            {message.message}
-            <span className="chat__timestamp">
-              {new Date(message.timestamp?.toDate()).toLocaleString()}
-            </span>
-          </p>
-        ))}
-      </div>
+      <ScrollToBottom className="chat__body">
+        <div >
+          {messages.map((message) => (
+            
+            <p
+              className={`chat__message ${
+                message.name === user.displayName && "chat__reciever"
+              }`}
+            >
+              <span className="chat__name">{message.name}</span>
+              {message.message}
+              <span className="chat__timestamp">
+                {new Date(message.timestamp?.toDate()).toLocaleString()}
+              </span>
+            </p>
+          ))}
+        </div>
+      </ScrollToBottom>
       <div className="chat__footer">
         <IconButton>
           <InsertEmoticon />
