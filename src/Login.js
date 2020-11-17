@@ -27,7 +27,7 @@ function Login() {
           alt=""
         />
         <div className="login_text">
-          <h1>Mesaj Yaz</h1>
+          <h1>Mesajlaşma</h1>
           <h1>Uygulamasına Giriş</h1>
         </div>
         <Button onClick={signIn}>Google ile Giriş Yap</Button>

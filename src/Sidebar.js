@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import { Avatar, IconButton } from "@material-ui/core";
-import { Chat } from "@material-ui/icons";
+import { ExitToApp } from "@material-ui/icons";
 import SidebarChat from "./SidebarChat";
-import db from "./firebase";
+import db, { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { actionTypes } from "./reducer";
+
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
-  // eslint-disable-next-line
+  
   const [{ user }, dispatch ] = useStateValue();
 
   useEffect(() => {
@@ -26,14 +28,24 @@ function Sidebar() {
     }
   }, []);
 
+  const signOut = () => {
+    auth.signOut().then((result) => {
+      dispatch({
+        type: actionTypes.DELETE_USER,
+        user: null,
+      });
+    })
+    .catch((error) => alert(error.message));
+  }
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
         <Avatar src={user?.photoURL}/>
         <span>{user.displayName}</span> 
         <div className="sidebar__headerRight">        
-          <IconButton>
-            <Chat />
+          <IconButton title="Çıkış" onClick={signOut}>
+            <ExitToApp/>
           </IconButton>       
         </div>
       </div>
