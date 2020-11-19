@@ -1,4 +1,4 @@
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import { InsertEmoticon, MoreVert } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -57,15 +57,12 @@ function Chat() {
           </p>
         </div>
         <div className="chat__headerRight">
-          <IconButton>
-            <MoreVert />
-          </IconButton>
+          <MoreVert />
         </div>
       </div>
       <ScrollToBottom className="chat__body">
-        <div >
+        <div>
           {messages.map((message) => (
-            
             <p
               className={`chat__message ${
                 message.name === user.displayName && "chat__reciever"
@@ -81,9 +78,7 @@ function Chat() {
         </div>
       </ScrollToBottom>
       <div className="chat__footer">
-        <IconButton>
-          <InsertEmoticon />
-        </IconButton>
+        <InsertEmoticon />
         <form>
           <input
             value={input}
@@ -92,12 +87,11 @@ function Chat() {
             type="text"
           />
           <button onClick={sendMessage} type="submit">
-            Send message!
+            Mesajı Gönder!
           </button>
         </form>
       </div>
     </div>
   );
 }
-
 export default Chat;

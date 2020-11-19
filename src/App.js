@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import "./App.css";
 import Chat from "./Chat";
 import Login from "./Login";
@@ -14,17 +13,17 @@ function App() {
   return (
     <div className="app">
       {!user ? (
-        <Login />
+        <Login /> //Giriş sayfası bileşenidir.
       ) : (
         <div className="app__body">
-          <Router>
-            <Sidebar />
-            <Switch>
-              <Route path="/rooms/:roomId">
-                <Chat />
+          <Router> {/* Router, Switch ve Route sayfalar arasıda gezinmeyi sağlayan react bileşenleridir*/}
+            <Sidebar /> {/* Kenar barı bileşenleridir*/}
+            <Switch> 
+              <Route path="/rooms/:roomId"> 
+                <Chat /> {/* Sohbet odası bileşenidir*/}
               </Route>
               <Route path="/">
-                <Chat />
+                <Chat /> 
               </Route>
             </Switch>
           </Router>
@@ -35,3 +34,5 @@ function App() {
 }
 
 export default App;
+
+// App dosyası Uygulmanın ana dosyasıdır. Diğer bileşenler bu dosya altında toplanarak uygulamayı oluşturur.

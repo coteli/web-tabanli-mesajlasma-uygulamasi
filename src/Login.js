@@ -7,7 +7,7 @@ import { actionTypes } from "./reducer";
 
 function Login() {
   // eslint-disable-next-line
-  const [{}, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue(); //Google hesabı ile giriş sağlanır ve kullanıcı ataması yapılır. 
   const signIn = () => {
     auth
       .signInWithPopup(provider)
@@ -30,10 +30,12 @@ function Login() {
           <h1>Mesajlaşma</h1>
           <h1>Uygulamasına Giriş</h1>
         </div>
-        <Button onClick={signIn}>Google ile Giriş Yap</Button>
+        <Button onClick={signIn}>Google ile Giriş Yap</Button> {/* Kullanıcı butona tıklayarak giriş işlemini başlatır. */}
       </div>
     </div>
   );
 }
-
 export default Login;
+
+//Kullanıcıların uygulamaya girişinin tasarlandığı giriş sayfası bileşenidir.
+//Uygulamada kullanıcı bilgisi bulunmuyorsa bu sayfaya yönlendirilir ve Google hesabı ile giriş yapması beklenir.
