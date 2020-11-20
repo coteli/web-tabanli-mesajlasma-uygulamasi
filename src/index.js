@@ -1,3 +1,5 @@
+// Uygulamayı oluşturan App bileşeni, bu dosyadan index.html dosyasına render edilir.
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -16,4 +18,3 @@ ReactDOM.render(
 );
 serviceWorker.unregister();
 
-// Uygulamayı oluşturan App bileşeni, bu dosyadan index.html dosyasına render edilir.

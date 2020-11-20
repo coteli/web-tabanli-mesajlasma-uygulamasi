@@ -1,3 +1,5 @@
+//Sohbet alanını oluşturan bileşendir.
+
 import { Avatar } from "@material-ui/core";
 import { InsertEmoticon, MoreVert } from "@material-ui/icons";
 import React, { useState, useEffect } from "react";
@@ -16,6 +18,7 @@ function Chat() {
   // eslint-disable-next-line
   const [{ user }, dispatch] = useStateValue();
 
+  //Sohbet odası adı ve mesajları veri tabanından çeker
   useEffect(() => {
     if (roomId) {
       db.collection("rooms")
@@ -32,6 +35,7 @@ function Chat() {
     }
   }, [roomId]);
 
+  //Mesaj gönderme fonksiyonu
   const sendMessage = (e) => {
     e.preventDefault();
 
@@ -50,7 +54,7 @@ function Chat() {
         <div className="chat__headerInfo">
           <h3>{roomName}</h3>
           <p>
-            Son mesaj zamanı{" "}
+            Son mesaj zamanı:{" "}
             {new Date(
               messages[messages.length - 1]?.timestamp?.toDate()
             ).toLocaleString()}
@@ -60,7 +64,7 @@ function Chat() {
           <MoreVert />
         </div>
       </div>
-      <ScrollToBottom className="chat__body">
+      <ScrollToBottom className="chat__body"> {/*Mesajları listeler */}
         <div>
           {messages.map((message) => (
             <p
@@ -79,7 +83,7 @@ function Chat() {
       </ScrollToBottom>
       <div className="chat__footer">
         <InsertEmoticon />
-        <form>
+        <form> {/* Mesaj yazma alanı */}
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}

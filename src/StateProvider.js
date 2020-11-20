@@ -1,3 +1,5 @@
+//Context API kullanımı için oluşturulan bileşendir.
+
 import React, { createContext, useContext, useReducer } from "react";
 
 export const StateContext = createContext();

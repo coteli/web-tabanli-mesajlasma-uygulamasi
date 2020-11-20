@@ -1,3 +1,6 @@
+//Kullanıcıların uygulamaya girişinin tasarlandığı giriş sayfası bileşenidir.
+//Uygulamada kullanıcı bilgisi bulunmuyorsa bu sayfaya yönlendirilir ve Google hesabı ile giriş yapması beklenir.
+
 import { Button } from "@material-ui/core";
 import React from "react";
 import "./Login.css";
@@ -37,5 +40,3 @@ function Login() {
 }
 export default Login;
 
-//Kullanıcıların uygulamaya girişinin tasarlandığı giriş sayfası bileşenidir.
-//Uygulamada kullanıcı bilgisi bulunmuyorsa bu sayfaya yönlendirilir ve Google hesabı ile giriş yapması beklenir.

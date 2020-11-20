@@ -1,3 +1,5 @@
+//Firebase ayarlarının bulunduğu bileşendir.
+
 import firebase from "firebase"
 
 const firebaseConfig = {

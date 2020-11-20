@@ -1,3 +1,5 @@
+//Context API içerisinde kullanılacak durum ve işlemlerin tanımlandığı bileşendir.
+
 export const initialState = {
   user: null,
 };
