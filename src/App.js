@@ -28,7 +28,7 @@ function App() {
                 <Chat /> {/* Sohbet odası bileşenidir*/}
               </Route>
               <Route path="/">
-                <Welcome/>
+                <Welcome/> {/*Hoşgeldin sayfası bileşenidir */}
               </Route>
             </Switch>
           </Router>
