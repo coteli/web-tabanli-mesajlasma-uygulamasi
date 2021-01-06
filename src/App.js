@@ -2,33 +2,34 @@
 
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import Chat from "./Chat";
-import Login from "./Login";
-import Sidebar from "./Sidebar";
+import Giris from "./Giris";
+import KenarBari from "./KenarBari";
+import Sohbet from "./Sohbet";
+import Hosgeldin from "./Hosgeldin";
 import { useStateValue } from "./StateProvider";
-import Welcome from "./Welcome";
+
+import "./App.css";
 
 function App() {
   // eslint-disable-next-line
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue(); //Kullanıcı bilgilerinin bu bileşende set edilmesini sağlar.
 
   return (
     <div className="app">
       {!user ? (
-        <Login /> //Giriş sayfası bileşenidir.
+        <Giris /> //Giriş sayfası bileşenidir.
       ) : (
         <div className="app__body">
           <Router>
             {" "}
             {/* Router, Switch ve Route sayfalar arasıda gezinmeyi sağlayan react bileşenleridir*/}
-            <Sidebar /> {/* Kenar barı bileşenleridir*/}
+            <KenarBari /> {/* Kenar barı bileşenleridir*/}
             <Switch>
               <Route path="/rooms/:roomId">
-                <Chat /> {/* Sohbet odası bileşenidir*/}
+                <Sohbet /> {/* Sohbet odası bileşenidir*/}
               </Route>
               <Route path="/">
-                <Welcome/> {/*Hoşgeldin sayfası bileşenidir */}
+                <Hosgeldin /> {/*Hoşgeldin sayfası bileşenidir */}
               </Route>
             </Switch>
           </Router>
@@ -39,4 +40,3 @@ function App() {
 }
 
 export default App;
-

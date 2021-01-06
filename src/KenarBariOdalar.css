@@ -1,0 +1,30 @@
+.kenarbariodalar {
+  display: flex;
+  border-bottom: 1px solid #f6f6f6;
+  overflow: hidden;
+  cursor: pointer;
+  max-height: 46px;
+  padding: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none !important;
+}
+
+.kenarbariodalar > h4 {
+  margin: auto;
+}
+
+.kenarbariodalar:hover {
+  background-color: #ebebeb;
+}
+
+.kenarbariodalar__bilgi > h2 {
+  margin-bottom: 2px;
+  font-size: 16px;
+}
+
+.kenarbariodalar__bilgi {
+  margin-left: 15px;
+}

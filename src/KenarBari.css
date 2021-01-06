@@ -1,0 +1,36 @@
+.kenarbari {
+  display: flex;
+  flex: 0.35;
+  flex-direction: column;
+  border-right: 1px solid lightgray;
+}
+
+.kenarbari__bas {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  font-size: large;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.kenarbari__bas > span {
+  margin-left: 10px;
+}
+
+.kenarbari__bassag {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.kenarbari__bassag > .MuiSvgIcon-root {
+  font-size: 24px !important;
+  margin: 2vw;
+}
+
+.kenarbari__odalar {
+  flex: 1;
+  background-color: white;
+  overflow: auto;
+}

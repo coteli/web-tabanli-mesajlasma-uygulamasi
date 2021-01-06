@@ -1,0 +1,103 @@
+.sohbet {
+  display: flex;
+  flex-direction: column;
+  flex: 0.65;
+}
+
+.sohbet__bas {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  height: 48px;
+  border-bottom: 1px solid lightgray;
+}
+
+.sohbet__basbilgi {
+  padding-left: 20px;
+  flex: 1;
+}
+
+.sohbet__basbilgi > h3 {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.sohbet__basbilgi > p {
+  color: gray;
+}
+
+.sohbet__mesaj {
+  position: relative;
+  max-width: 350px;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 30px;
+  font-size: 16px;
+  background-color: #ffffff;
+}
+
+.sohbet__sahip {
+  background-color: #47b0d6;
+  color: #ffffff;
+  margin-left: auto;
+}
+
+.sohbet__zaman {
+  font-size: xx-small;
+  margin-left: 10px;
+}
+
+.sohbet__isim {
+  position: absolute;
+  font-weight: 800;
+  top: -16px;
+  color: black;
+  font-size: x-small;
+}
+
+.sohbet__bassag {
+  display: flex;
+  margin-left: auto;
+  justify-content: space-between;
+}
+
+.sohbet__govde {
+  flex: 1;
+  background-image: url("/arkaplan.png");
+  background-position: center;
+  background-repeat: repeat;
+  overflow: auto;
+  padding: 30px 0px;
+}
+
+.sohbet__alt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+  border-top: 1px solid lightgray;
+}
+
+.sohbet__alt > form {
+  flex: 1;
+  display: flex;
+}
+
+.sohbet__alt > form > input {
+  flex: 1;
+  border-radius: 30px;
+  padding: 10px;
+  margin-right: 20px;
+  border: none;
+  outline: none;
+}
+
+.sohbet__alt > form > button {
+  display: none;
+}
+
+.sohbet__alt > .MuiSvgIcon-root {
+  padding: 10px;
+  color: gray;
+}

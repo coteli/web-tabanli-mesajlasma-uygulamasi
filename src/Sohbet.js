@@ -1,16 +1,17 @@
 //Sohbet alanını oluşturan bileşendir.
 
+import React, { useState, useEffect } from "react";
 import { Avatar } from "@material-ui/core";
 import { InsertEmoticon, MoreVert } from "@material-ui/icons";
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import "./Chat.css";
-import db from "./firebase";
 import { useStateValue } from "./StateProvider";
+import vt from "./firebase";
 import firebase from "firebase";
 import ScrollToBottom from "react-scroll-to-bottom";
 
-function Chat() {
+import "./Sohbet.css";
+
+function Sohbet() {
   const [input, setInput] = useState("");
   const { roomId } = useParams();
   const [roomName, setRoomName] = useState("");
@@ -21,11 +22,11 @@ function Chat() {
   //Sohbet odası adı ve mesajları veri tabanından çeker
   useEffect(() => {
     if (roomId) {
-      db.collection("rooms")
+      vt.collection("rooms")
         .doc(roomId)
         .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
 
-      db.collection("rooms")
+      vt.collection("rooms")
         .doc(roomId)
         .collection("messages")
         .orderBy("timestamp", "asc")
@@ -36,10 +37,10 @@ function Chat() {
   }, [roomId]);
 
   //Mesaj gönderme fonksiyonu
-  const sendMessage = (e) => {
+  const mesajGonder = (e) => {
     e.preventDefault();
 
-    db.collection("rooms").doc(roomId).collection("messages").add({
+    vt.collection("rooms").doc(roomId).collection("messages").add({
       message: input,
       name: user.displayName,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -48,10 +49,10 @@ function Chat() {
   };
 
   return (
-    <div className="chat">
-      <div className="chat__header">
+    <div className="sohbet">
+      <div className="sohbet__bas">
         <Avatar src={`http://avatars.dicebear.com/api/bottts/${roomId}.svg`} />
-        <div className="chat__headerInfo">
+        <div className="sohbet__basbilgi">
           <h3>{roomName}</h3>
           <p>
             Son mesaj zamanı:{" "}
@@ -60,37 +61,47 @@ function Chat() {
             ).toLocaleString()}
           </p>
         </div>
-        <div className="chat__headerRight">
+        <div className="sohbet__bassag">
           <MoreVert />
         </div>
       </div>
-      <ScrollToBottom className="chat__body"> {/*Mesajları listeler */}
+      <ScrollToBottom className="sohbet__govde">
+        {" "}
         <div>
+          {/*Mesajları listeler */}
           {messages.map((message) => (
             <p
-              className={`chat__message ${
-                message.name === user.displayName && "chat__reciever"
+              className={`sohbet__mesaj ${
+                message.name === user.displayName && "sohbet__sahip" //Oturum sahibi ile diğer kullanıcıların gönderdiği mesajların
+                //ayrı biçimlerde listelenmesini sağlar
               }`}
             >
-              <span className="chat__name">{message.name}</span>
+              <span className="sohbet__isim">
+                {message.name}
+                {/* mesaj gönderenin ismini yazdırır */}
+              </span>
               {message.message}
-              <span className="chat__timestamp">
+              {/* Gönderilen mesajı yazdırır */}
+              <span className="sohbet__zaman">
                 {new Date(message.timestamp?.toDate()).toLocaleString()}
+                {/* Gönderilen mesajın tarih ve saatini yazdırır */}
               </span>
             </p>
           ))}
         </div>
       </ScrollToBottom>
-      <div className="chat__footer">
+      <div className="sohbet__alt">
         <InsertEmoticon />
-        <form> {/* Mesaj yazma alanı */}
+        <form>
+          {" "}
+          {/* Mesaj yazma alanı */}
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Mesajınızı yazın..."
             type="text"
           />
-          <button onClick={sendMessage} type="submit">
+          <button onClick={mesajGonder} type="submit">
             Mesajı Gönder!
           </button>
         </form>
@@ -98,4 +109,4 @@ function Chat() {
     </div>
   );
 }
-export default Chat;
+export default Sohbet;

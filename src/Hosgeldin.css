@@ -1,0 +1,28 @@
+.hosgeldin {
+  flex: 0.65;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  justify-content: center;
+}
+
+.hosgeldin__govde {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hosgeldin__text {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  max-width: 40vw;
+  text-align: center;
+}
+
+.hosgeldin__text > p {
+  margin-top: 20px;
+  font-weight: 500;
+  color: rgb(94, 94, 94);
+}
